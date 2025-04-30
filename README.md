@@ -2,6 +2,13 @@
 
 A whimsical incremental clicker game where you push pencils to unlock upgrades and achieve enlightenment! Built with vanilla JavaScript, HTML, and CSS.
 
+
+## Getting Started
+
+Visit the [GitHub Page](https://welbornt.github.io/pencil-pusher/) to play the game!
+
+## Screenshot
+
 ![Game Screenshot](screenshot.png)
 
 ## Game Overview
@@ -40,10 +47,6 @@ Pencil Pusher is an idle clicker game where you:
   - Cookie consent management
   - Auto-save functionality
   - Option to revoke cookies
-
-## Getting Started
-
-Visit the [GitHub Page](https://welbornt.github.io/pencil-pusher/) to play the game!
 
 ## Development
 
