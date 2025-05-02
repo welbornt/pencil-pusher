@@ -278,39 +278,37 @@ class Game {
     }
 
     resetGame() {
-        if (confirm('Are you sure you want to reset the game? This will erase ALL progress, including enlightenments and achievements. This cannot be undone!')) {
-            // Reset all game state
-            this.pencils = 0;
-            this.pencilsPerSecond = 0;
-            this.clickPower = 1;
-            this.pencilMultiplier = 1;
-            this.clickMultiplier = 1;
-            this.enlightenmentPoints = 0;
-            this.enlightenmentMultiplier = 1;
-            this.enlightenmentCost = 1000000;
-            this.enlightenmentCount = 0;
-            this.hasAchievedCosmicPencil = false;
-            
-            // Reset upgrades
-            this.upgrades.forEach(upgrade => {
-                upgrade.owned = 0;
-                upgrade.cost = upgrade.initialCost || upgrade.cost;
-            });
-            
-            // Clear saved game
-            if (this.cookieConsent) {
-                localStorage.removeItem('pencilPusherSave');
-            }
-            
-            // Update UI
-            this.updateUI();
-            this.renderUpgrades();
-            
-            // Remove ending overlay if it exists
-            const endingOverlay = document.querySelector('.ending-overlay');
-            if (endingOverlay) {
-                endingOverlay.remove();
-            }
+        // Reset all game state
+        this.pencils = 0;
+        this.pencilsPerSecond = 0;
+        this.clickPower = 1;
+        this.pencilMultiplier = 1;
+        this.clickMultiplier = 1;
+        this.enlightenmentPoints = 0;
+        this.enlightenmentMultiplier = 1;
+        this.enlightenmentCost = 1000000;
+        this.enlightenmentCount = 0;
+        this.hasAchievedCosmicPencil = false;
+        
+        // Reset upgrades
+        this.upgrades.forEach(upgrade => {
+            upgrade.owned = 0;
+            upgrade.cost = upgrade.initialCost || upgrade.cost;
+        });
+        
+        // Clear saved game
+        if (this.cookieConsent) {
+            localStorage.removeItem('pencilPusherSave');
+        }
+        
+        // Update UI
+        this.updateUI();
+        this.renderUpgrades();
+        
+        // Remove ending overlay if it exists
+        const endingOverlay = document.querySelector('.ending-overlay');
+        if (endingOverlay) {
+            endingOverlay.remove();
         }
     }
 
