@@ -53,12 +53,12 @@ class Game {
             },
             {
                 name: "Pencil Singularity",
-                description: "Create a black hole of pencils! (50x everything)",
-                cost: 50000,
+                description: "Create a black hole of pencils! (50x click power and production)",
+                cost: 5000000,
+                initialCost: 5000000,
                 effect: () => {
                     this.clickPower *= 50;
                     this.pencilsPerSecond *= 50;
-                    this.pencils *= 2;
                 },
                 owned: 0
             },
@@ -396,7 +396,12 @@ class Game {
                 gameState.upgrades.forEach((savedUpgrade, index) => {
                     if (this.upgrades[index]) {
                         this.upgrades[index].owned = savedUpgrade.owned;
-                        this.upgrades[index].cost = savedUpgrade.cost;
+                        // Only update cost if initialCost is not set
+                        if (!this.upgrades[index].initialCost) {
+                            this.upgrades[index].cost = savedUpgrade.cost;
+                        } else {
+                            this.upgrades[index].cost = this.upgrades[index].initialCost;
+                        }
                     }
                 });
 
