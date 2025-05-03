@@ -42,11 +42,12 @@ class Game {
             },
             {
                 name: "Pencil God Mode",
-                description: "Become the ultimate pencil deity! (10x click power)",
-                cost: 10000,
+                description: "Become the ultimate pencil deity! (Increases click power and production by 50%)",
+                cost: 1000000,
+                initialCost: 1000000,
                 effect: () => {
-                    this.clickPower *= 10;
-                    this.pencilsPerSecond *= 5;
+                    this.clickPower *= 1.5;
+                    this.pencilsPerSecond *= 1.5;
                 },
                 owned: 0
             },
