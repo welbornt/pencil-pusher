@@ -16,6 +16,7 @@ class Game {
                 name: "Better Pencil",
                 description: "Increases click power by 1",
                 cost: 10,
+                initialCost: 10,
                 effect: () => this.clickPower++,
                 owned: 0
             },
@@ -23,6 +24,7 @@ class Game {
                 name: "Pencil Sharpener",
                 description: "Automatically pushes pencils every second",
                 cost: 50,
+                initialCost: 50,
                 effect: () => this.pencilsPerSecond += 1,
                 owned: 0
             },
@@ -30,6 +32,7 @@ class Game {
                 name: "Pencil Factory",
                 description: "Increases pencils per second by 25%",
                 cost: 200,
+                initialCost: 200,
                 effect: () => this.pencilMultiplier *= 1.25,
                 owned: 0
             },
@@ -37,6 +40,7 @@ class Game {
                 name: "Pencil Empire",
                 description: "Increases click power by 50%",
                 cost: 500,
+                initialCost: 500,
                 effect: () => this.clickMultiplier *= 1.5,
                 owned: 0
             },
@@ -66,6 +70,7 @@ class Game {
                 name: "Cosmic Pencil",
                 description: "Transcend reality itself! (Requires 5 enlightenments)",
                 cost: 1000000000,
+                initialCost: 1000000000,
                 effect: () => {
                     this.hasAchievedCosmicPencil = true;
                     this.clickPower *= 1000;
@@ -94,6 +99,17 @@ class Game {
         this.pushButton = document.getElementById('push-pencil');
         this.upgradesGrid = document.querySelector('.upgrades-grid');
         
+        // Create footer with reset button
+        const footer = document.createElement('footer');
+        footer.className = 'game-footer';
+        footer.innerHTML = `
+            <div class="footer-buttons">
+                <button id="reset-button" class="reset-button">Reset Game</button>
+                <button id="revoke-cookies" class="revoke-button">Revoke Cookies</button>
+            </div>
+        `;
+        document.querySelector('.game-container').appendChild(footer);
+        
         // Create enlightenment section
         const enlightenmentSection = document.createElement('div');
         enlightenmentSection.className = 'enlightenment-section';
@@ -105,20 +121,8 @@ class Game {
             <p>Cost: <span id="enlightenment-cost">1,000,000</span> pencils</p>
             <button id="enlightenment-button" class="enlightenment-button">Achieve Enlightenment</button>
         `;
-        // Insert after the stats section
-        const statsSection = document.querySelector('.stats');
-        statsSection.parentNode.insertBefore(enlightenmentSection, statsSection.nextSibling);
-        
-        // Create footer with reset button
-        const footer = document.createElement('footer');
-        footer.className = 'game-footer';
-        footer.innerHTML = `
-            <div class="footer-buttons">
-                <button id="reset-button" class="reset-button">Reset Game</button>
-                <button id="revoke-cookies" class="revoke-button">Revoke Cookies</button>
-            </div>
-        `;
-        document.querySelector('.game-container').appendChild(footer);
+        // Insert before the footer
+        footer.parentNode.insertBefore(enlightenmentSection, footer);
         
         this.enlightenmentPointsElement = document.getElementById('enlightenment-points');
         this.enlightenmentBonusElement = document.getElementById('enlightenment-bonus');
