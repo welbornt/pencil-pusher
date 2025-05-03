@@ -9,7 +9,7 @@ Visit the [GitHub Page](https://welbornt.github.io/pencil-pusher/) to play the g
 
 ## Screenshot
 
-![Game Screenshot](screenshot.png)
+![Game Screenshot](screenshot.png?)
 
 ## Game Overview
 
